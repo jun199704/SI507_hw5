@@ -167,7 +167,7 @@ class TestCard(unittest.TestCase):
         len_before=len(c.cards)
         c.replace_card(card_removed)
         len_after=len(c.cards)
-        self.assertEqual(len_after,len_before+1,52)
+        self.assertEqual(len_after,len_before+1)
 
         
         X=len_after
