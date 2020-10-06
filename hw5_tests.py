@@ -5,6 +5,7 @@
 
 import unittest
 import hw5_cards
+import random
 
 class TestCard(unittest.TestCase):
 
@@ -42,7 +43,9 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Card(rank=12)
         self.assertEqual(c.rank_name,"Queen")
         
-        #return X, Y
+        X=c.rank_name
+        Y="Queen"
+        return X, Y
     
     def test_q2(self):
         '''
@@ -59,7 +62,9 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Card(suit=1)
         self.assertEqual(c.suit_name,"Clubs")
         
-        #return X, Y    
+        X=c.suit_name
+        Y="Clubs"
+        return X, Y    
     
 
     def test_q3(self):
@@ -78,7 +83,9 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Card(3,13)
         self.assertEqual(c.__str__,"King of Spades")
         
-        #return X, Y
+        X=c.__str__
+        Y="King of Spades"
+        return X, Y
     
     def test_q4(self):
         '''
@@ -95,7 +102,9 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Deck()
         self.assertEqual(len(c.cards),52)
         
-        #return X, Y  
+        X=len(c.cards)
+        Y=52
+        return X, Y  
 
     def test_q5(self):
         '''
@@ -112,7 +121,9 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Deck()
         self.assertIsInstance(c.deal_card(),hw5_cards.Card)
         
-        #return X, Y
+        X=c.deal_card()
+        Y=hw5_cards.Card
+        return X, Y
     
     def test_q6(self):
         '''
@@ -133,7 +144,9 @@ class TestCard(unittest.TestCase):
         len_after=len(c.cards)
         self.assertEqual(len_after,len_before-1)
         
-        #return X, Y    
+        X=len_after
+        Y=len_before-1
+        return X, Y   
     
 
     def test_q7(self):
@@ -157,7 +170,9 @@ class TestCard(unittest.TestCase):
         self.assertEqual(len_after,len_before+1)
 
         
-        #return X, Y
+        X=len_after
+        Y=len_before+1
+        return X, Y
     
     def test_q8(self):
         '''
@@ -172,16 +187,18 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        for suit in range(4):
-            for rank in range(1,14):
-                c=hw5_cards.Deck()
-                len_before=len(c.cards)
-                card = Card(suit,rank)
-                c.replace_card(card)
-                len_after=len(c.cards)
-                self.assertEqual(len_before,len_after)
+        suit=random.randint(0,3)
+        rank=random.randint(1,13)
+        c=hw5_cards.Deck()
+        len_before=len(c.cards)
+        card = Card(suit,rank)
+        c.replace_card(card)
+        len_after=len(c.cards)
+        self.assertEqual(len_before,len_after)
         
-        #return X, Y  
+        X=len_before
+        Y=len_after
+        return X, Y  
 
 
 
