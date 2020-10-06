@@ -81,9 +81,9 @@ class TestCard(unittest.TestCase):
 
         '''
         c=hw5_cards.Card(3,13)
-        self.assertEqual(c.__str__,"King of Spades")
+        self.assertEqual(c.__str__(),"King of Spades")
         
-        X=c.__str__
+        X=c.__str__()
         Y="King of Spades"
         return X, Y
     
@@ -165,7 +165,7 @@ class TestCard(unittest.TestCase):
         c=hw5_cards.Deck()
         card_removed=c.deal_card()
         len_before=len(c.cards)
-        c.replace_card(card)
+        c.replace_card(card_removed)
         len_after=len(c.cards)
         self.assertEqual(len_after,len_before+1)
 
@@ -191,7 +191,7 @@ class TestCard(unittest.TestCase):
         rank=random.randint(1,13)
         c=hw5_cards.Deck()
         len_before=len(c.cards)
-        card = Card(suit,rank)
+        card = hw5_cards.Card(suit,rank)
         c.replace_card(card)
         len_after=len(c.cards)
         self.assertEqual(len_before,len_after)
