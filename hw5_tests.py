@@ -172,8 +172,7 @@ class TestCard(unittest.TestCase):
         
         X=len_after
         Y=len_before+1
-        Z=52
-        return X, Y, Z
+        return X, Y
     
     def test_q8(self):
         '''
